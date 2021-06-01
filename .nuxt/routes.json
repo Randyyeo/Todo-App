@@ -1,0 +1,16 @@
+[
+  {
+    "name": "inspire",
+    "path": "/inspire",
+    "component": "/Users/randallyeo/Desktop/My Own Programming/Nuxtjs/Todo-App/pages/inspire.vue",
+    "chunkName": "pages/inspire",
+    "_name": "_e11078e8"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/randallyeo/Desktop/My Own Programming/Nuxtjs/Todo-App/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_b1ea87f8"
+  }
+]

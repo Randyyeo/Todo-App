@@ -21,6 +21,8 @@
 
 
 <script>
+import firebase from 'firebase/app'
+import "firebase/firestore"
 export default {
     data(){
         return {
@@ -32,8 +34,22 @@ export default {
     },
     methods: {
         addTodo(){
-            this.$store.dispatch("getUsers", this.todo)
-            this.todo = ""
+            if (this.todo){
+                firebase.firestore().collection("todos").add({
+
+                }).then((res)=>{
+                    firebase.firestore().collection("todos").doc(res.id).set({
+                        todo: this.todo,
+                        date: this.$store.getters.getDate,
+                        id: res.id
+                    
+                    }).then(()=>{
+                        this.$store.commit("addUsers", {"todo": this.todo, "id": res.id, "date": this.$store.getters.getDate})
+                        this.todo = ""
+                    })
+                })
+            }
+            
         }
     }
     

@@ -25,7 +25,7 @@
                             Added on: {{ task.added }}
                         </v-list-item-subtitle>
                     </v-list-item-content>
-                    <v-btn fab small color="red" v-if="active" @click="remove(index)">
+                    <v-btn fab small color="red" v-if="active" @click="remove(task, index)">
                         <v-icon >mdi-close</v-icon>
                     </v-btn>
                 </template>
@@ -44,10 +44,11 @@
 
 
 <script>
+import firebase from "firebase/app"
+import "firebase/firestore"
 export default {
     data(){
         return {
-            tasks: this.$store.state.tasks,
             selected: "",
             active: false
         }
@@ -57,12 +58,17 @@ export default {
             this.active = !this.active
         },
 
-        remove(index) {
-            this.$store.dispatch("getUsersAfterRemoved", index);
+        remove(task, index) {
+            firebase.firestore().collection("todos").doc(task.id).delete().then(()=>{
+                this.$store.dispatch("getUsersAfterRemoved", index);
+            })
+            
         },
     },
     computed: {
-
+        tasks(){
+            return this.$store.state.tasks
+        },
     
         selected(name){
             return this.selected === name

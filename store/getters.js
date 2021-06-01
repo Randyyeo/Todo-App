@@ -14,16 +14,18 @@ export default {
         var day = days[index];
         var date = new Date().getDate()
         
-        switch (date % 10) {
-            case 1:
-                date += "st";
-            case 2:
-                date +="nd";
-            case 3:
-                date +="rd";
-            default:
-                date +="th";
-        }
+        var remain = date % 10
+
+        if (remain == 1){
+            date += "st";
+        } else if (remain == 2){
+            date += "nd";
+        } else if (remain == 3){
+            date += "rd";
+        } else {
+            date += "th";
+        } 
+
        
         var year = d.getFullYear() 
         return day + ", " + date + " " + year

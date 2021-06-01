@@ -1,11 +1,9 @@
 export default {
     addUsers(state, values){
         
-        
-        
-        var newTodo = {id: state.id, title: values[0], added: values[1]}
+        var newTodo = {id: values.id, title: values.todo, added: values.date}
         state.tasks.push(newTodo)
-        state.id++
+        console.log(newTodo)
     },
 
     

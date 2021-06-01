@@ -1,0 +1,17 @@
+{
+  "VuetifyLogo": {
+    "description": "Auto imported from components/VuetifyLogo.vue"
+  },
+  "Date": {
+    "description": "Auto imported from components/date.vue"
+  },
+  "TaskList": {
+    "description": "Auto imported from components/task-list.vue"
+  },
+  "Task": {
+    "description": "Auto imported from components/task.vue"
+  },
+  "Toolbar": {
+    "description": "Auto imported from components/toolbar.vue"
+  }
+}

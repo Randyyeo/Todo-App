@@ -18,9 +18,10 @@ import date from "@/components/date"
 import task from "@/components/task" */
 
 
-
-
+import firebase from "firebase/app"
+import "firebase/firestore"
 export default {
+  
   /* components:{
     toolbar,
     date,
@@ -36,6 +37,13 @@ export default {
       this.active = !this.active;
       this.$emit("change", this.active);
     }
+  },
+  mounted() {
+    firebase.firestore().collection("todos").get().then(res => {
+      res.forEach(x => {
+        this.$store.dispatch("getUsers", x.data())
+      })
+    })
   }
   
   
